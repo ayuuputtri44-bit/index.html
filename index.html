@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday, Bunaa Ibeey! 🐝</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Trebuchet MS",sans-serif;
+  color:#654321;
+  background:#fff8df;
+  text-align:center;
+}
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:linear-gradient(145deg,#fff9e8,#ffe28a);
+}
+.card{
+  width:100%;
+  max-width:600px;
+  padding:35px 22px;
+  background:#fffdf5;
+  border:3px solid white;
+  border-radius:30px;
+  box-shadow:0 15px 40px #96702a25;
+}
+.bee{font-size:75px;animation:bounce 2s infinite}
+h1{
+  font-family:Georgia,serif;
+  font-size:clamp(35px,8vw,58px);
+  color:#70471f;
+}
+p{line-height:1.8}
+button{
+  border:0;
+  border-radius:30px;
+  padding:14px 22px;
+  margin:8px;
+  background:#654321;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:hover{background:#92652d}
+#surprise{display:none;padding:30px 18px}
+.panel{
+  max-width:650px;
+  margin:24px auto;
+  padding:25px;
+  background:#fffdf5;
+  border:1px solid #f1dda0;
+  border-radius:24px;
+  box-shadow:0 8px 25px #96702a15;
+}
+h2{font-family:Georgia,serif}
+.letter{text-align:left}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.photo{
+  background:#fff1bd;
+  border-radius:15px;
+  padding:10px;
+  overflow:hidden;
+}
+.photo img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:10px;
+}
+input{max-width:100%;font-size:12px}
+.cake{font-size:100px}
+#secret{display:none;background:#fff1bd;padding:18px;border-radius:15px}
+footer{padding:25px;background:#ffedb0}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+@media(max-width:480px){
+  .gallery{grid-template-columns:1fr 1fr}
+  .card{padding:28px 16px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="card">
+    <div class="bee">🐝</div>
+    <p>♡ A LITTLE HONEY-SWEET SURPRISE ♡</p>
+    <h1>Happy Birthday,<br>Bunaa Ibeey!</h1>
+    <p>Untuk induk lebahh kesayangan 🍯💛</p>
+    <p>Ada kejutan kecil yang dibuat khusus dari hati!</p>
+    <button onclick="openSurprise()">Buka kejutanmu 💌</button>
+  </div>
+</section>
+
+<div id="surprise">
+  <section class="panel letter">
+    <h2>Surat untuk Induk Lebahh 💌</h2>
+    <p>Happy birthday, Bunaa Ibeeyyy! 🐝💛</p>
+    <p>
+      Selamat bertambah usia untuk induk lebahh paling spesial!
+      Semoga hari-hari Bunaa dipenuhi kebahagiaan, kesehatan,
+      rezeki yang baik, orang-orang tulus, dan banyak alasan
+      untuk tersenyum.
+    </p>
+    <p>
+      Semoga semua doa baik Bunaa satu per satu menjadi nyata.
+      Kalau suatu hari dunia terasa melelahkan, jangan lupa
+      istirahat, yaa. Bunaa nggak harus selalu kuat setiap saat.
+    </p>
+    <p>
+      Terima kasih sudah menjadi Bunaa yang istimewa.
+      Semoga umur baru ini membawa banyak cerita manis,
+      tawa, dan kenangan indah. Hari ini giliran Bunaa
+      yang dirayakan! 🎂🌼
+    </p>
+    <p><i>With lots of honey & love,<br>Anatt Lebah 🐝</i></p>
+  </section>
+
+  <section class="panel">
+    <h2>Galeri Kenangan 📸</h2>
+    <p>Pilih foto untuk menghias halaman ini!</p>
+    <div class="gallery">
+      <div class="photo">
+        <img id="img1" alt="Foto kenangan 1"
+        src="https://placehold.co/300x400/fff1bd/805b2c?text=Photo+1">
+        <input type="file" accept="image/*"
+        onchange="preview(event,'img1')">
+      </div>
+      <div class="photo">
+        <img id="img2" alt="Foto kenangan 2"
+        src="https://placehold.co/300x400/ffe7a0/805b2c?text=Photo+2">
+        <input type="file" accept="image/*"
+        onchange="preview(event,'img2')">
+      </div>
+      <div class="photo">
+        <img id="img3" alt="Foto kenangan 3"
+        src="https://placehold.co/300x400/fff5d9/805b2c?text=Photo+3">
+        <input type="file" accept="image/*"
+        onchange="preview(event,'img3')">
+      </div>
+    </div>
+    <p><small>Foto pilihan tampil di perangkatmu sendiri.</small></p>
+  </section>
+
+  <section class="panel">
+    <h2>Kue untuk Bunaa 🎂</h2>
+    <div class="cake">🎂</div>
+    <p id="wish">Buat satu permohonan baik! ✨</p>
+    <button onclick="blow()">Tiup lilinnya 🌬️</button>
+  </section>
+
+  <section class="panel">
+    <h2>Pesan Rahasia 🔐</h2>
+    <button onclick="secret()">Buka pesan rahasia 💌</button>
+    <div id="secret">
+      <p>
+        Bunaa, jangan lupa bahagia bukan cuma hari ini, yaa.
+        Kamu layak mendapat hal-hal baik bahkan di hari biasa.
+        Semoga langkahmu selalu dimudahkan dan hari-harimu
+        semanis madu. Happy birthday, induk lebahh! 🐝🌷
+      </p>
+      <b>You are loved more than you know 💛</b>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Hujan Confetti 🎉</h2>
+    <p>Karena hari ini hari spesial Bunaa!</p>
+    <button onclick="confetti()">Rayakan! 🎊</button>
+    <div id="celebration"></div>
+  </section>
+</div>
+
+<footer>
+  🐝 🍯 🌼
+  <p><b>Dibuat dengan banyak cinta untuk Bunaa Ibeey</b></p>
+  Semoga hari Bunaa semanis madu 💛
+</footer>
+
+<script>
+function openSurprise(){
+  document.getElementById("surprise").style.display="block";
+  document.getElementById("surprise").scrollIntoView({
+    behavior:"smooth"
+  });
+  confetti();
+}
+
+function preview(event,id){
+  const file=event.target.files[0];
+  if(!file)return;
+  if(!file.type.startsWith("image/")){
+    alert("Pilih file gambar ya!");
+    return;
+  }
+  const reader=new FileReader();
+  reader.onload=function(e){
+    document.getElementById(id).src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+let candle=true;
+function blow(){
+  candle=!candle;
+  document.getElementById("wish").textContent=candle
+    ?"Lilin menyala lagi! Buat permohonan baik ✨"
+    :"Semoga harapan baik Bunaa menjadi nyata! 💛";
+}
+
+function secret(){
+  const box=document.getElementById("secret");
+  box.style.display=box.style.display==="block"?"none":"block";
+}
+
+function confetti(){
+  const area=document.getElementById("celebration");
+  const emojis=["💛","🐝","🌼","✨","🍯","🎉"];
+  for(let i=0;i<18;i++){
+    const item=document.createElement("span");
+    item.textContent=emojis[Math.floor(Math.random()*emojis.length)]+" ";
+    item.style.fontSize="25px";
+    area.appendChild(item);
+  }
+}
+</script>
+</body>
+</html>
