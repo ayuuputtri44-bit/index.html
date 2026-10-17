@@ -6,7 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy Birthday, Bunaa Ibeey! 🐝</title>
 <style>
-*{box-sizing:border-box}
+
+<div style="text-align:center; padding:20px;">
+  <button id="musicButton" onclick="toggleMusic()"
+    style="background:#654321;color:white;border:0;
+    padding:13px 22px;border-radius:30px;font-size:16px;">
+    🎵 Putar Lagu untuk Bunaa
+  </button>
+  <audio id="birthdaySong" loop>
+    <source src="./lagu.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+const song = document.getElementById("birthdaySong");
+const musicButton = document.getElementById("musicButton");
+
+function toggleMusic() {
+  if (song.paused) {
+    song.play().then(() => {
+      musicButton.textContent = "⏸️ Jeda Lagu";
+    }).catch(() => {
+      alert("Lagu belum bisa diputar. Cek file lagu.mp3 kamu ya!");
+    });
+  } else {
+    song.pause();
+    musicButton.textContent = "🎵 Putar Lagu untuk Bunaa";
+  }
+}
+</script>
+</body>
+  *{box-sizing:border-box}
 body{
   margin:0;
   font-family:"Trebuchet MS",sans-serif;
